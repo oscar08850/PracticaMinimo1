@@ -45,8 +45,8 @@ function newGrupoInvestigacion (req:Request, res:Response): void {
         "nombregrupo": req.body.nombregrupo,
         "id": req.body.id,
         "descripcion": req.body.descripcion,
-        "resultado": req.body.resultado,
-        "test": req.body.test
+        "responsable": req.body.responsable,
+        "url": req.body.url
     });
     
     console.log(req.body);

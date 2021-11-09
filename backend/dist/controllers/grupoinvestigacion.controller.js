@@ -82,8 +82,10 @@ async function deleteGrupoinvestigacion(req:Request, res:Response): Promise<Resp
 */
 function deleteGrupoinvestigacion(req, res) {
     const { id } = req.params;
-    console.log("ELIMINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA             " + id);
-    grupoinvestigacion_1.default.findByIdAndDelete(id).then((data) => {
+    grupoinvestigacion_1.default.findOne({ "id": req.params.id }).remove().exec();
+    /*
+    console.log("ELIMINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA             " + req.params.id)
+    GrupoInvestigacion.findByIdAndDelete(GrupoInvestigacion.findOne({"id":req.params.id})).then((data) => {
         console.log("ESTO ES DATA " + data);
         let status = 200;
         if (data == null)
@@ -92,7 +94,9 @@ function deleteGrupoinvestigacion(req, res) {
         return res.status(status).json(data);
     }).catch((err) => {
         console.log("esto es el error " + err);
+
         return res.status(500).json(err);
     });
+    */
 }
 exports.default = { getAll, getGrupoInvestigacion, newGrupoInvestigacion, updateGrupoInvestigacion, deleteGrupoinvestigacion };
